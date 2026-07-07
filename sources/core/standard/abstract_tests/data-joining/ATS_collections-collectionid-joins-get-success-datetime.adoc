@@ -1,0 +1,15 @@
+[[ats_data_joining_collections-collectionid-joins-get-success-datetime]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/data-joining/collections-collectionid-joins-get-success-datetime
+target:: /req/data-joining/collections-collectionid-joins-get-success-datetime
+test-purpose:: Validate that the join sources content complies with the required structure and contents.
+test-method::
++
+--
+. If the server supports the `datetime` parameter, execute the test <<ats_data_joining_collections-collectionid-joins-get-op, /conf/data-joining/collections-collectionid-joins-get-op>> with a supported `datetime` parameter value. 
+. Verify that the response contains only join source elements that match with the give `datetime` parameter value.
+--
+====

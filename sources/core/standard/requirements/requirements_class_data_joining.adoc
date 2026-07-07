@@ -10,8 +10,6 @@ inherit:: <<requirements_class_core,Requirements Class: Core>>
 inherit:: <<requirements_class_input-file-upload,Requirements Class: Input File Upload>>
 inherit:: <<requirements_class_input-http-ref,Requirements Class: File Referencing with URL>>
 inherit:: <<requirements_class_input-csv,Requirements Class: CSV File Input>>
-inherit:: <<requirements_class_output-geojson,Requirements Class: GeoJSON Output for Joined Data>>
-inherit:: <<requirements_class_output-geojson-direct,Requirements Class: Direct GeoJSON Output for Joined Data>>
 inherit:: <<OGC20-024,OGC 20-024 (OGC - API - Common: Part 2)>>
 inherit:: <<rfc2616,RFC 2616 (HTTP/1.1)>>
 inherit:: <<rfc2818,RFC 2818 (HTTP over TLS)>>
@@ -30,26 +28,21 @@ requirement:: /req/data-joining/collections-collectionid-keys-get-op
 requirement:: /req/data-joining/collections-collectionid-keys-get-success
 requirement:: /req/data-joining/collections-collectionid-keys-get-success-default-key
 requirement:: /req/data-joining/collections-collectionid-keys-get-success-links
-requirement:: /req/data-joining/joins-get-op
-requirement:: /req/data-joining/joins-get-success
-requirement:: /req/data-joining/joins-get-success-limit
-requirement:: /req/data-joining/joins-get-success-limit-unsupported
-requirement:: /req/data-joining/joins-get-success-datetime
-requirement:: /req/data-joining/joins-get-success-paged-response
-requirement:: /req/data-joining/joins-get-success-numberMatched
-requirement:: /req/data-joining/joins-get-success-numberReturned
-requirement:: /req/data-joining/joins-get-success-items
-requirement:: /req/data-joining/joins-get-success-links
-requirement:: /req/data-joining/joins-get-success-items-links
-requirement:: /req/data-joining/joins-get-success-timeStamp
-requirement:: /req/data-joining/joins-post-op
-requirement:: /req/data-joining/joins-post-op-additional-output-formats
-requirement:: /req/data-joining/joins-post-success
-requirement:: /req/data-joining/joins-post-success-input-data-file-csv-multiple-keys
-requirement:: /req/data-joining/joins-post-success-input-data-file-csv-attribute-names
-requirement:: /req/data-joining/joins-joinid-get-op
-requirement:: /req/data-joining/joins-joinid-get-success
-requirement:: /req/data-joining/joins-joinid-get-success-links
-requirement:: /req/data-joining/joins-joinid-get-success-links-collection
-requirement:: /req/data-joining/joins-joinid-get-success-links-outputs
+requirement:: /req/data-joining/collections-collectionid-joins-get-op
+requirement:: /req/data-joining/collections-collectionid-joins-get-success
+requirement:: /req/data-joining/collections-collectionid-joins-get-success-limit
+requirement:: /req/data-joining/collections-collectionid-joins-get-success-limit-unsupported
+requirement:: /req/data-joining/collections-collectionid-joins-get-success-datetime
+requirement:: /req/data-joining/collections-collectionid-joins-get-success-paged-response
+requirement:: /req/data-joining/collections-collectionid-joins-get-success-numberMatched
+requirement:: /req/data-joining/collections-collectionid-joins-get-success-numberReturned
+requirement:: /req/data-joining/collections-collectionid-joins-get-success-items
+requirement:: /req/data-joining/collections-collectionid-joins-get-success-links
+requirement:: /req/data-joining/collections-collectionid-joins-get-success-items-links
+requirement:: /req/data-joining/collections-collectionid-joins-get-success-timeStamp
+requirement:: /req/data-joining/collections-collectionid-joins-post-op
+requirement:: /req/data-joining/collections-collectionid-joins-post-success
+requirement:: /req/data-joining/collections-collectionid-joins-joinid-get-op
+requirement:: /req/data-joining/collections-collectionid-joins-joinid-get-success
+requirement:: /req/data-joining/collections-collectionid-joins-joinid-get-success-links
 ====

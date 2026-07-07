@@ -1,0 +1,16 @@
+[[ats_data_joining_collections-collectionid-joins-joinid-get-success]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/data-joining/collections-collectionid-joins-joinid-get-success
+target:: /req/data-joining/collections-collectionid-joins-joinid-get-success
+test-purpose:: Validate that the Join Source content complies with the required structure and contents.
+test-method::
++
+--
+Validate that the response document complies with <<collections_collectionid_join_joinid_schema, Join schema>>.
+
+. Validate that the response document complies with test <<ats_data_joining_collections-collectionid-joins-joinid-get-success-links, /conf/data-joining/collections-collectionid-joins-joinid-get-success-links>>
+--
+====

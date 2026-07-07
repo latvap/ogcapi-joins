@@ -28,28 +28,28 @@ GET /collections/{collectionId}/keys
 Returns the key fields of a specific collection
 
 ```
-GET /joins
+GET /collections/{collectionId}/joins
 ```
 
-Returns a list of the joins available on the server
+Returns a list of the available join sources that are related to a specific collection
 
 ```
-POST /joins
+POST /collections/{collectionId}/joins
 ```
 
-Creates a new join by joining attribute data from a inputted attribute data file with a specific collection
+Creates a new join source for the specified collection. The join source is stored to the server and it can be requested with the features items query
 
 ```
-GET /joins/{joinId}
+GET /collections/{collectionId}/joins/{joinId}
 ```
 
-Returns metadata on a specific join
+Returns metadata on a specific join source
 
 ```
-DELETE /joins/{joinId}
+DELETE /collections/{collectionId}/joins/{joinId}
 ```
 
-Deletes a specific join
+Deletes a specific join source
 
 ```
 POST /filejoin

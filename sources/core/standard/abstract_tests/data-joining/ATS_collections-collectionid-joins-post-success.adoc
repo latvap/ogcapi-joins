@@ -1,0 +1,14 @@
+[[ats_data_joining_collections-collectionid-joins-post-success]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/data-joining/collections-collectionid-joins-post-success
+target:: /req/data-joining/collections-collectionid-joins-post-success
+test-purpose:: Validate that the Join Source Creation response complies with the required structure and contents.
+test-method::
++
+--
+For test method (1) in the abtract test <<ats_data_joining_collections-collectionid-joins-post-op, /conf/data-joining/collections-collectionid-joins-post-op>>: +
+1. Validate that the response document complies with the <<collections_collectionid_join_joinid_schema, Join Schema>>. +
+--
+====

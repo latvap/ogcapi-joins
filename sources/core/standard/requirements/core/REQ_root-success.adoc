@@ -12,5 +12,4 @@ The response can include <<link-relation-types,links>> to following resources:
 * API definition (link rel property value: `service-desc` or `service-doc`) (recommended path `/api`).
 * `/conformance` (link rel property value: `http://www.opengis.net/def/rel/ogc/1.0/conformance`)
 * `/collections` (link rel property value: `http://www.opengis.net/def/rel/ogc/1.0/data`)
-* `/joins` (link rel property value: `joins`)
 ====

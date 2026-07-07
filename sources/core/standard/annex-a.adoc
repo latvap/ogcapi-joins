@@ -63,28 +63,23 @@ abstract-test:: /conf/data-joining/collections-collectionid-keys-get-op
 abstract-test:: /conf/data-joining/collections-collectionid-keys-get-success
 abstract-test:: /conf/data-joining/collections-collectionid-keys-get-success-default-key
 abstract-test:: /conf/data-joining/collections-collectionid-keys-get-success-links
-abstract-test:: /conf/data-joining/joins-get-op
-abstract-test:: /conf/data-joining/joins-get-success
-abstract-test:: /conf/data-joining/joins-get-success-limit
-abstract-test:: /conf/data-joining/joins-get-success-limit-unsupported
-abstract-test:: /conf/data-joining/joins-get-success-datetime
-abstract-test:: /conf/data-joining/joins-get-success-paged-response
-abstract-test:: /conf/data-joining/joins-get-success-numberMatched
-abstract-test:: /conf/data-joining/joins-get-success-numberReturned
-abstract-test:: /conf/data-joining/joins-get-success-items
-abstract-test:: /conf/data-joining/joins-get-success-links
-abstract-test:: /conf/data-joining/joins-get-success-items-links
-abstract-test:: /conf/data-joining/joins-get-success-timeStamp
-abstract-test:: /conf/data-joining/joins-post-op
-abstract-test:: /conf/data-joining/joins-post-op-additional-output-formats
-abstract-test:: /conf/data-joining/joins-post-success
-abstract-test:: /conf/data-joining/joins-post-success-input-data-file-csv-multiple-keys
-abstract-test:: /conf/data-joining/joins-post-success-input-data-file-csv-attribute-names
-abstract-test:: /conf/data-joining/joins-joinid-get-op
-abstract-test:: /conf/data-joining/joins-joinid-get-success
-abstract-test:: /conf/data-joining/joins-joinid-get-success-links
-abstract-test:: /conf/data-joining/joins-joinid-get-success-links-collection
-abstract-test:: /conf/data-joining/joins-joinid-get-success-links-outputs
+abstract-test:: /conf/data-joining/collections-collectionid-joins-get-op
+abstract-test:: /conf/data-joining/collections-collectionid-joins-get-success
+abstract-test:: /conf/data-joining/collections-collectionid-joins-get-success-limit
+abstract-test:: /conf/data-joining/collections-collectionid-joins-get-success-limit-unsupported
+abstract-test:: /conf/data-joining/collections-collectionid-joins-get-success-datetime
+abstract-test:: /conf/data-joining/collections-collectionid-joins-get-success-paged-response
+abstract-test:: /conf/data-joining/collections-collectionid-joins-get-success-numberMatched
+abstract-test:: /conf/data-joining/collections-collectionid-joins-get-success-numberReturned
+abstract-test:: /conf/data-joining/collections-collectionid-joins-get-success-items
+abstract-test:: /conf/data-joining/collections-collectionid-joins-get-success-links
+abstract-test:: /conf/data-joining/collections-collectionid-joins-get-success-items-links
+abstract-test:: /conf/data-joining/collections-collectionid-joins-get-success-timeStamp
+abstract-test:: /conf/data-joining/collections-collectionid-joins-post-op
+abstract-test:: /conf/data-joining/collections-collectionid-joins-post-success
+abstract-test:: /conf/data-joining/collections-collectionid-joins-joinid-get-op
+abstract-test:: /conf/data-joining/collections-collectionid-joins-joinid-get-success
+abstract-test:: /conf/data-joining/collections-collectionid-joins-joinid-get-success-links
 ====
 
 ==== Collections {root}/collections
@@ -114,72 +109,60 @@ include::abstract_tests/data-joining/ATS_collections-collectionid-keys-get-succe
 
 include::abstract_tests/data-joining/ATS_collections-collectionid-keys-get-success-links.adoc[]
 
-==== Joins {root}/joins
-include::abstract_tests/data-joining/ATS_joins-get-op.adoc[]
 
-include::abstract_tests/data-joining/ATS_joins-get-success.adoc[]
+==== Joins Sources {root}/collections/{collectionId}/joins
+include::abstract_tests/data-joining/ATS_collections-collectionid-joins-get-op.adoc[]
 
-include::abstract_tests/data-joining/ATS_joins-get-success-limit.adoc[]
+include::abstract_tests/data-joining/ATS_collections-collectionid-joins-get-success.adoc[]
 
-include::abstract_tests/data-joining/ATS_joins-get-success-limit-unsupported.adoc[]
+include::abstract_tests/data-joining/ATS_collections-collectionid-joins-get-success-limit.adoc[]
 
-include::abstract_tests/data-joining/ATS_joins-get-success-datetime.adoc[]
+include::abstract_tests/data-joining/ATS_collections-collectionid-joins-get-success-limit-unsupported.adoc[]
 
-include::abstract_tests/data-joining/ATS_joins-get-success-paged-response.adoc[]
+include::abstract_tests/data-joining/ATS_collections-collectionid-joins-get-success-datetime.adoc[]
 
-include::abstract_tests/data-joining/ATS_joins-get-success-numberMatched.adoc[]
+include::abstract_tests/data-joining/ATS_collections-collectionid-joins-get-success-paged-response.adoc[]
 
-include::abstract_tests/data-joining/ATS_joins-get-success-numberReturned.adoc[]
+include::abstract_tests/data-joining/ATS_collections-collectionid-joins-get-success-numberMatched.adoc[]
 
-include::abstract_tests/data-joining/ATS_joins-get-success-items.adoc[]
+include::abstract_tests/data-joining/ATS_collections-collectionid-joins-get-success-numberReturned.adoc[]
 
-include::abstract_tests/data-joining/ATS_joins-get-success-links.adoc[]
+include::abstract_tests/data-joining/ATS_collections-collectionid-joins-get-success-items.adoc[]
 
-include::abstract_tests/data-joining/ATS_joins-get-success-items-links.adoc[]
+include::abstract_tests/data-joining/ATS_collections-collectionid-joins-get-success-links.adoc[]
 
-include::abstract_tests/data-joining/ATS_joins-get-success-timeStamp.adoc[]
+include::abstract_tests/data-joining/ATS_collections-collectionid-joins-get-success-items-links.adoc[]
 
-==== Join Creation {root}/joins
-include::abstract_tests/data-joining/ATS_joins-post-op.adoc[]
+include::abstract_tests/data-joining/ATS_collections-collectionid-joins-get-success-timeStamp.adoc[]
 
-include::abstract_tests/data-joining/ATS_joins-post-op-additional-output-formats.adoc[]
+==== Join Source Creation {root}/collections/{collectionId}/joins
+include::abstract_tests/data-joining/ATS_collections-collectionid-joins-post-op.adoc[]
 
-include::abstract_tests/data-joining/ATS_joins-post-success.adoc[]
+include::abstract_tests/data-joining/ATS_collections-collectionid-joins-post-success.adoc[]
 
-include::abstract_tests/data-joining/ATS_joins-post-success-input-data-file-csv-multiple-keys.adoc[]
+==== Join Source {root}/collections/{collectionId}/joins/{joinId}
+include::abstract_tests/data-joining/ATS_collections-collectionid-joins-joinid-get-op.adoc[]
 
-include::abstract_tests/data-joining/ATS_joins-post-success-input-data-file-csv-attribute-names.adoc[]
+include::abstract_tests/data-joining/ATS_collections-collectionid-joins-joinid-get-success.adoc[]
 
-==== Join {root}/joins/{joinId}
-include::abstract_tests/data-joining/ATS_joins-joinid-get-op.adoc[]
+include::abstract_tests/data-joining/ATS_collections-collectionid-joins-joinid-get-success-links.adoc[]
 
-include::abstract_tests/data-joining/ATS_joins-joinid-get-success.adoc[]
-
-include::abstract_tests/data-joining/ATS_joins-joinid-get-success-links.adoc[]
-
-include::abstract_tests/data-joining/ATS_joins-joinid-get-success-links-collection.adoc[]
-
-include::abstract_tests/data-joining/ATS_joins-joinid-get-success-links-outputs.adoc[]
-
-
-
-[[ats_join_delete]]
-===  Conformance Class "Join Delete"
+[[ats_join_source_delete]]
+===  Conformance Class "Join Source Delete"
 [conformance_class]
 ====
 [%metadata]
-identifier:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/join-delete
-target:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/req/join-delete
+identifier:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/join-source-delete
+target:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/req/join-source-delete
 classification:: Target Type:Web API
-abstract-test:: /conf/join-delete/joins-joinid-delete-op
-abstract-test:: /conf/join-delete/joins-joinid-delete-success
+abstract-test:: /conf/join-source-delete/collections-collectionid-joins-joinid-delete-op
+abstract-test:: /conf/join-source-delete/collections-collectionid-joins-joinid-delete-success
 ====
 
-==== Join Delete {root}/joins/{joinId}
-include::abstract_tests/join-delete/ATS_joins-joinid-delete-op.adoc[]
+==== Join Source Delete {root}/collections/{collectionId}/joins/{joinId}
+include::abstract_tests/join-source-delete/ATS_collections-collectionid-joins-joinid-delete-op.adoc[]
 
-include::abstract_tests/join-delete/ATS_joins-joinid-delete-success.adoc[]
-
+include::abstract_tests/join-source-delete/ATS_collections-collectionid-joins-joinid-delete-success.adoc[]
 
 [[ats_file_joining]]
 ===  Conformance Class "File Joining"
@@ -212,12 +195,12 @@ include::abstract_tests/file-joining/ATS_filejoin-post-success-attribute-data-fi
 identifier:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input-file-upload
 target:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/req/input-file-upload
 classification:: Target Type:Web API
-abstract-test:: /conf/input-file-upload/right-dataset-file-join-creation
+abstract-test:: /conf/input-file-upload/right-dataset-file-join-source-creation
 abstract-test:: /conf/input-file-upload/right-dataset-file-file-joining
 abstract-test:: /conf/input-file-upload/left-dataset-file-file-joining
 ====
 
-include::abstract_tests/input-file-upload/ATS_right-dataset-file-join-creation.adoc[]
+include::abstract_tests/input-file-upload/ATS_right-dataset-file-join-source-creation.adoc[]
 
 include::abstract_tests/input-file-upload/ATS_right-dataset-file-file-joining.adoc[]
 
@@ -232,12 +215,12 @@ include::abstract_tests/input-file-upload/ATS_left-dataset-file-file-joining.ado
 identifier:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input-http-ref
 target:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/req/input-http-ref
 classification:: Target Type:Web API
-abstract-test:: /conf/input-http-ref/right-dataset-url-join-creation
+abstract-test:: /conf/input-http-ref/right-dataset-url-join-source-creation
 abstract-test:: /conf/input-http-ref/right-dataset-url-file-joining
 abstract-test:: /conf/input-http-ref/left-dataset-url-file-joining
 ====
 
-include::abstract_tests/input-http-ref/ATS_right-dataset-url-join-creation.adoc[]
+include::abstract_tests/input-http-ref/ATS_right-dataset-url-join-source-creation.adoc[]
 
 include::abstract_tests/input-http-ref/ATS_right-dataset-url-file-joining.adoc[]
 
@@ -252,11 +235,11 @@ include::abstract_tests/input-http-ref/ATS_left-dataset-url-file-joining.adoc[]
 identifier:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input-csv
 target:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/req/input-csv
 classification:: Target Type:Web API
-abstract-test:: /conf/input-csv/right-dataset-format-join-creation
+abstract-test:: /conf/input-csv/right-dataset-format-join-source-creation
 abstract-test:: /conf/input-csv/right-dataset-format-file-joining
 ====
 
-include::abstract_tests/input-csv/ATS_right-dataset-format-join-creation.adoc[]
+include::abstract_tests/input-csv/ATS_right-dataset-format-join-source-creation.adoc[]
 include::abstract_tests/input-csv/ATS_right-dataset-format-file-joining.adoc[]
 
 
@@ -273,37 +256,6 @@ abstract-test:: /conf/input-geojson/left-dataset-format-file-joining
 ====
 
 include::abstract_tests/input-geojson/ATS_left-dataset-format-file-joining.adoc[]
-
-
-
-[[ats_output_geojson]]
-===  Conformance Class "GeoJSON Output for Joined Data"
-[conformance_class]
-====
-[%metadata]
-identifier:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/output-geojson
-target:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/req/output-geojson
-classification:: Target Type:Web API
-abstract-test:: /conf/output-geojson/output-formats-join-creation
-====
-
-include::abstract_tests/output-geojson/ATS_output-formats-join-creation.adoc[]
-
-
-
-[[ats_geojson_direct]]
-===  Conformance Class "Direct GeoJSON Output for Joined Data"
-[conformance_class]
-====
-[%metadata]
-identifier:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/output-geojson-direct
-target:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/req/output-geojson-direct
-classification:: Target Type:Web API
-abstract-test:: /conf/output-geojson-direct/output-formats-join-creation
-====
-
-include::abstract_tests/output-geojson-direct/ATS_output-formats-join-creation.adoc[]
-
 
 
 [[ats_html]]
@@ -353,12 +305,8 @@ include::abstract_tests/json/ATS_json-content.adoc[]
 identifier:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/geojson    
 target:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/req/geojson
 classification:: Target Type:Web API
-abstract-test:: /conf/geojson/geojson-join-creation
 abstract-test:: /conf/geojson/geojson-file-joining
 ====
-
-==== Join Creation
-include::abstract_tests/geojson/ATS_geojson-join-creation.adoc[]
 
 ==== File Joining
 include::abstract_tests/geojson/ATS_geojson-file-joining.adoc[]

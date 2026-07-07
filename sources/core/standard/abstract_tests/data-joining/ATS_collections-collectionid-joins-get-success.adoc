@@ -1,0 +1,25 @@
+[[ats_data_joining_collections-collectionid-joins-get-success]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/data-joining/collections-collectionid-joins-get-success
+target:: /req/data-joining/collections-collectionid-joins-get-success
+test-purpose:: Validate that the join sources content complies with the required structure and contents.
+test-method::
++
+--
+. Validate that the response document complies with <<collections_collectionid_joins_schema, Join Sources Schema>>.
+
+. Validate that the response document complies with test <<ats_data_joining_collections-collectionid-joins-get-success-limit,/conf/data-joining/collections-collectionid-joins-get-success-limit>>
+. Validate that the response document complies with test <<ats_data_joining_collections-collectionid-joins-get-success-limit-unsupported,/conf/data-joining/collections-collectionid-joins-get-success-limit-unsupported>>
+. Validate that the response document complies with test <<ats_data_joining_collections-collectionid-joins-get-success-datetime,/conf/data-joining/collections-collectionid-joins-get-success-datetime>>
+. Validate that the response document complies with test <<ats_data_joining_collections-collectionid-joins-get-success-paged-response,/conf/data-joining/collections-collectionid-joins-get-success-paged-response>>
+. Validate that the response document complies with test <<ats_data_joining_collections-collectionid-joins-get-success-numberMatched,/conf/data-joining/collections-collectionid-joins-get-success-numberMatched>>
+. Validate that the response document complies with test <<ats_data_joining_collections-collectionid-joins-get-success-numberReturned,/conf/data-joining/collections-collectionid-joins-get-success-numberReturned>>
+. Validate that the response document complies with test <<ats_data_joining_collections-collectionid-joins-get-success-items,/conf/data-joining/collections-collectionid-joins-get-success-items>>
+. Validate that the response document complies with test <<ats_data_joining_collections-collectionid-joins-get-success-links,/conf/data-joining/collections-collectionid-joins-get-success-links>>
+. Validate that the response document complies with test <<ats_data_joining_collections-collectionid-joins-get-success-items-links,/conf/data-joining/collections-collectionid-joins-get-success-items-links>>
+. Validate that the response document complies with test <<ats_data_joining_collections-collectionid-joins-get-success-timeStamp,/conf/data-joining/collections-collectionid-joins-get-success-timeStamp>>
+--
+====
