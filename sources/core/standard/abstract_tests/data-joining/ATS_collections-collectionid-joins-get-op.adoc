@@ -1,0 +1,16 @@
+[[ats_data_joining_collections-collectionid-joins-get-op]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/data-joining/collections-collectionid-joins-get-op
+target:: /req/data-joining/collections-collectionid-joins-get-op
+test-purpose:: Validate that the information about Join Sources of a specific collection can be retrieved from the expected location.
+test-method::
++
+--
+. 1. Issue an HTTP GET request to the URL `{root}/collections/{collectionId}/joins`.
+. 2. Validate that a document was returned with a status code `200`.
+. 3. Validate the contents of the returned document using test <<ats_data_joining_collections-collectionid-joins-get-success, /conf/data-joining/collections-collectionid-joins-get-success>>
+--
+====

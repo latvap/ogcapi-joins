@@ -72,7 +72,6 @@ The HTTP GET operation at service root path `{root}/` returns the API landing pa
 * API definition document.
 * Conformance information.
 * Metadata on collections available on the server.
-* Joins available on the server.
 
 ==== Request
 
@@ -279,302 +278,261 @@ See <<http_status_codes,HTTP status codes>> for general guidance.
 
 If the parameter `collectionId` does not exist on the server, the status code of the response will be `404`. (see <<http_status_codes,Table 4>>).
 
-=== Joins
 
-The HTTP GET operation at path `{root}/joins` returns a list of joins that are available on the server.
+=== Join Sources
+
+The HTTP GET operation at path `{root}/collections/{collectionId}/joins` returns a list of join sources  available on the server that have been created for the specific collection.
 
 ==== Request
 
-include::./requirements/data-joining/REQ_joins-get-op.adoc[]
+include::./requirements/data-joining/REQ_collections-collectionid-joins-get-op.adoc[]
 
-include::./requirements/data-joining/PER_joins-get-op-limit-parameter.adoc[]
+include::./requirements/data-joining/PER_collections-collectionid-joins-get-op-limit-parameter.adoc[]
 
-include::./requirements/data-joining/PER_joins-get-op-datetime-parameter.adoc[]
+include::./requirements/data-joining/PER_collections-collectionid-joins-get-op-datetime-parameter.adoc[]
 
 ==== Response
 
-include::./requirements/data-joining/REQ_joins-get-success.adoc[]
+include::./requirements/data-joining/REQ_collections-collectionid-joins-get-success.adoc[]
 
 ===== Parameter Limit
 
-The number of returned joins depends on the server and the value of the `limit` parameter. 
+The number of returned join sources depends on the server and the value of the `limit` parameter. 
 
-The client can request a limit to the number of joins returned in a response by using the `limit` parameter. The `limit` parameter indicates the maximum number of joins which should be included in a single response.
+The client can request a limit to the number of join sources returned in a response by using the `limit` parameter. The `limit` parameter indicates the maximum number of join sources which should be included in a single response.
 
 The server may have a default value for the limit and a maximum limit.
 
-include::./requirements/data-joining/REQ_joins-get-success-limit.adoc[]
+include::./requirements/data-joining/REQ_collections-collectionid-joins-get-success-limit.adoc[]
 
-include::./requirements/data-joining/REQ_joins-get-success-limit-unsupported.adoc[]
+include::./requirements/data-joining/REQ_collections-collectionid-joins-get-success-limit-unsupported.adoc[]
 
 ===== Parameter datetime
 
-include::./requirements/data-joining/REQ_joins-get-success-datetime.adoc[]
+include::./requirements/data-joining/REQ_collections-collectionid-joins-get-success-datetime.adoc[]
 
 ===== Paged response
 
 If the number of items in the `joins` array of the response is less than or equal to the requested/default/maximum limit then the server will include a link to the next set of results.
 
-include::./requirements/data-joining/PER_joins-get-success-server-limit.adoc[]
+include::./requirements/data-joining/PER_collections-collectionid-joins-get-success-server-limit.adoc[]
 
-include::./requirements/data-joining/REC_joins-get-success-server-limit.adoc[]
+include::./requirements/data-joining/REC_collections-collectionid-joins-get-success-server-limit.adoc[]
 
 The effect of the `limit` parameter is to divide the response into a number of pages. Each page (except for the last) contains the specified number of entities. The response contains the first page. Additional pages can be accessed through hyperlink navigation.
 
-include::./requirements/data-joining/REC_joins-get-success-next-1.adoc[]
+include::./requirements/data-joining/REC_collections-collectionid-joins-get-success-next-1.adoc[]
 
-include::./requirements/data-joining/REC_joins-get-success-next-2.adoc[]
+include::./requirements/data-joining/REC_collections-collectionid-joins-get-success-next-2.adoc[]
 
-include::./requirements/data-joining/REC_joins-get-success-next-3.adoc[]
+include::./requirements/data-joining/REC_collections-collectionid-joins-get-success-next-3.adoc[]
 
 Providing `prev` links supports navigating back and forth between pages, but depending on the implementation approach it may be too complex to implement.
 
-include::./requirements/data-joining/PER_joins-get-success-prev.adoc[]
+include::./requirements/data-joining/PER_collections-collectionid-joins-get-success-prev.adoc[]
 
-If the server response does not contain all of the joins that match the selection parameters, then the client must be informed of that fact.
+If the server response does not contain all of the join sources that match the selection parameters, then the client must be informed of that fact.
 
-include::./requirements/data-joining/REQ_joins-get-success-paged-response.adoc[]
+include::./requirements/data-joining/REQ_collections-collectionid-joins-get-success-paged-response.adoc[]
 
-The `numberMatched` property of the response indicates the number of joins that are available in the server that match the selection parameters in the request.
+The `numberMatched` property of the response indicates the number of join sources that are available in the server that match the selection parameters in the request.
 
-include::./requirements/data-joining/REQ_joins-get-success-numberMatched.adoc[]
+include::./requirements/data-joining/REQ_collections-collectionid-joins-get-success-numberMatched.adoc[]
 
-include::./requirements/data-joining/PER_joins-get-success-numberMatched.adoc[]
+include::./requirements/data-joining/PER_collections-collectionid-joins-get-success-numberMatched.adoc[]
 
-The number of joins included in a response may be a subset of the number matched. In that case, the `numberReturned` property of the response indicates the number of joins returned in this "page" of the response.
+The number of join sources included in a response may be a subset of the number matched. In that case, the `numberReturned` property of the response indicates the number of join sources returned in this "page" of the response.
 
-include::./requirements/data-joining/REQ_joins-get-success-numberReturned.adoc[]
+include::./requirements/data-joining/REQ_collections-collectionid-joins-get-success-numberReturned.adoc[]
 
-include::./requirements/data-joining/PER_joins-get-success-numberReturned.adoc[]
+include::./requirements/data-joining/PER_collections-collectionid-joins-get-success-numberReturned.adoc[]
 
-===== Response schema for the Joins
+===== Response schema for the Join Sources
+include::../schemas/collections_collectionid_joins_schema.adoc[]
 
-include::./../schemas/joins_schema.adoc[]
 
-[[joins-resource-definition]]
+[[join-sources-resource-definition]]
 //[discrete]
 ====== joins
-The `joins` property of the response provides a description of each individual join hosted by the server.
+The `joins` property of the response provides a description of each individual join source hosted by the server.
 
-include::./requirements/data-joining/REQ_joins-get-success-items.adoc[]
+include::./requirements/data-joining/REQ_collections-collectionid-joins-get-success-items.adoc[]
 
 //[discrete]
 ====== links
 
-To support hypermedia navigation, the `links` property must be populated with sufficient hyperlinks to navigate through the joins.
+To support hypermedia navigation, the `links` property must be populated with sufficient hyperlinks to navigate through the join sources.
 
-Property `links` in the `JoinsResponseObject`:
+Property `links` in the `CollectionJoinsResponseObject`:
 
-include::./requirements/data-joining/REQ_joins-get-success-links.adoc[]
+include::./requirements/data-joining/REQ_collections-collectionid-joins-get-success-links.adoc[]
 
 Property `links` in the `JoinsObject`:
 
-include::./requirements/data-joining/REQ_joins-get-success-items-links.adoc[]
+include::./requirements/data-joining/REQ_collections-collectionid-joins-get-success-items-links.adoc[]
 
 //[discrete]
 ====== id
 
-Identifier of the join.
+Identifier of the join source.
+
+//[discrete]
+====== joins
+
+An array containing a list of join sources.
 
 //[discrete]
 ====== numberMatched
 
-The number of joins that are available in the server that match the selection parameters in the request.
+The number of join sources that are available in the server that match the selection parameters in the request.
 
 //[discrete]
 ====== numberReturned
 
-The number of joins returned in the response.
-
+The number of join sources returned in the response.
 
 //[discrete]
 ====== timeStamp
 
-Property `timeStamp` in the `JoinsResponseObject`:
+Property `timeStamp` in the `CollectionJoinsResponseObject`:
 
-include::./requirements/data-joining/REQ_joins-get-success-timeStamp.adoc[]
+include::./requirements/data-joining/REQ_collections-collectionid-joins-get-success-timeStamp.adoc[]
 
 Property `timeStamp` in the `JoinsObject`:
 
-The time when the join was generated.
+The time when the join source was generated.
 
 ==== Error Situations
 See <<http_status_codes,HTTP status codes>> for general guidance.
 
-[[join_creation]]
-=== Join Creation
+[[join_source_creation]]
+=== Join Source Creation
 
-The HTTP POST operation at path `{root}/joins` creates a new join. 
+The HTTP POST operation at path `{root}/collections/{collectionId}/joins` creates a new join source. 
 
-The operation joins data from an input data file with a collection hosted on the server.
+The operation reads data from an input data file and saves it to the server as a join source.
 
 The input data file can either be uploaded to the server with the query, represented by the requirements class "<<rc_file_uploading_with_query, Input File Upload>>" or referenced via URL links, represented by the requirements class "<<rc_file_referencing_with_url, File Referencing with URL>>".
 
-The core module contains support for the CSV format for the input data files, defined in the requirements class "<<rc_input_csv, CSV File Input>>". The CSV files must have a column that contains the key values that will be used in the join operation and a separate column for each joined attribute.
+The core module contains support for the CSV format for the input data files, defined in the requirements class "<<rc_input_csv, CSV File Input>>". The CSV files must have a column that contains the key values and a separate column for each joined attribute.
 
-The joins are executed via common key values that are available in both datasets. If the input data file contains additional key values that are not available in the collection, they will not be included to the joined output. The extension modules may alter this behavior.
-
-The operation is required to support the GeoJSON format for the joined data, represented by the requirements class "<<requirements_class_output-geojson, GeoJSON Output for Joined Data>>" and it may support direct GeoJSON output, represented by the requirements class "<<requirements_class_output-geojson-direct, Direct GeoJSON Output for Joined Data>>". In addition, the operation may support any other output format for the joined data.
+The joins are executed when the collection data items query is requested with the joinId parameter by using common key values that are available both, in the join source data and in the collection data.
 
 ==== Request
 
-include::./requirements/data-joining/REQ_joins-post-op.adoc[]
+include::./requirements/data-joining/REQ_collections-collectionid-joins-post-op.adoc[]
 
-include::./requirements/data-joining/REQ_joins-post-op-form-data-parameters.adoc[]
-
-include::./requirements/data-joining/PER_joins-post-op-additional-output-formats.adoc[]
-
-include::./requirements/data-joining/REQ_joins-post-op-additional-output-formats.adoc[]
+include::./requirements/data-joining/REQ_collections-collectionid-joins-post-op-form-data-parameters.adoc[]
 
 ==== Response
 
-include::./requirements/data-joining/REQ_joins-post-success.adoc[]
+include::./requirements/data-joining/REQ_collections-collectionid-joins-post-success.adoc[]
 
-include::./requirements/data-joining/REQ_joins-post-success-input-data-file-csv-multiple-keys.adoc[]
+===== Response schema for the Join Source Creation
 
-include::./requirements/data-joining/REQ_joins-post-success-input-data-file-csv-attribute-names.adoc[]
-
-===== Response schema for the Join Creation
-
-The response schema for queries that create a join resource is expressed with the <<join_schema,Join Schema>>.
-
-For responses that produce a direct GeoJSON output, the response is a GeoJSON file that contains also the joined attributes from the input data file.
+The response schema for queries that create a join resource is expressed with the <<collections_collectionid_join_joinid_schema,Join Schema>>.
 
 ==== Error Situations
 See <<http_status_codes,HTTP status codes>> for general guidance.
 
-=== Join
 
-The HTTP GET operation at path `{root}/joins/{joinId}` returns metadata on a specific join that is available on the server.
+=== Join Source
+
+The HTTP GET operation at path `{root}/collections/{collectionId}/joins/{joinId}` returns metadata on a specific join source that is available on the server.
 
 ==== Request
 
-include::./requirements/data-joining/REQ_joins-joinid-get-op.adoc[]
+include::./requirements/data-joining/REQ_collections-collectionid-joins-joinid-get-op.adoc[]
 
 ==== Response
 
-include::./requirements/data-joining/REQ_joins-joinid-get-success.adoc[]
+include::./requirements/data-joining/REQ_collections-collectionid-joins-joinid-get-success.adoc[]
 
-===== Response Schema for the Join
+===== Response Schema for the Join Source
 
-include::./../schemas/join_schema.adoc[]
+include::./../schemas/collections_collectionid_joins_join_schema.adoc[]
 
-[[req_core_joins-joinid-resource-definition]]
+[[req_core_collections-collectionid-joins-joinid-resource-definition]]
+
+//[discrete]
+====== details
+
+Details of the join source.
+
+//[discrete]
+====== collectionKey
+
+Key of the collection that matches to the joinKey.
+
+//[discrete]
+====== created
+
+The time of the join source creation.
+
+Add This
+
+//[discrete]
+====== joinFields
+
+Names of the data fields in the join source.
+
+//[discrete]
+====== joinKey
+
+Name of the property that is the join source key.
+
+//[discrete]
+====== numberOfRows
+
+The number of rows in the join source.
+
+//[discrete]
+====== sourceFile
+
+Name of the input data file.
+
+//[discrete]
+====== id
+
+Unique identifier for the join source.
 
 //[discrete]
 ====== links
 
 To support hypermedia navigation, the `links` property must be populated with sufficient hyperlinks.
 
-include::./requirements/data-joining/REQ_joins-joinid-get-success-links.adoc[]
-
-//[discrete]
-====== join
-
-The metadata on the join.
-
-//[discrete]
-====== id
-
-Unique identifier for the join resource.
+include::./requirements/data-joining/REQ_collections-collectionid-joins-joinid-get-success-links.adoc[]
 
 //[discrete]
 ====== timeStamp
 
-The time when the join was generated.
-
-//[discrete]
-====== inputs
-
-Input datasets that were used in the join operation.
-
-//[discrete]
-====== attributeDataset
-Name or URL of the input attribute data file.
-
-//[discrete]
-====== collection
-
-A `link` object that contains information on the collection that was used in the join operation.
-
-include::./requirements/data-joining/REQ_joins-joinid-get-success-links-collection.adoc[]
-
-//[discrete]
-====== outputs
-
-Links to the produced outputs that contain the joined data.
-
-include::./requirements/data-joining/REQ_joins-joinid-get-success-links-outputs.adoc[]
-
-//[discrete]
-====== joinInformation
-
-Information on the execution of the data join operation
-
-//[discrete]
-====== numberOfMatchedCollectionKeys
-
-The number of collection's key values, to which attribute data was joined successfully.
-
-//[discrete]
-====== numberOfUnmatchedCollectionKeys
-
-The number of collection's key values, to which attribute data couldn´t be joined.
-
-//[discrete]
-====== numberOfAdditionalAttributeKeys
-
-The number of additional key values in the attribute dataset that were not available in the collection.
-
-//[discrete]
-====== matchedCollectionKeys
-
-List of collection's key values that were successfully joined with attribute data
-
-//[discrete]
-====== unmatchedCollectionKeys
-
-List of collection's key values, to which attribute data couldn´t be joined.
-
-//[discrete]
-====== additionalAttributeKeys
-
-List of key values in the attribute data file that were not available in the collection's key field.
-
-//[discrete]
-====== duplicateAttributeKeys
-
-List of duplicate keys in the attribute data file.
-
-//[discrete]
-====== numberOfDuplicateAttributeKeys
-
-The number of keys in the attribute data file that had duplicate entries.
+The time when the join souce output was requested.
 
 ==== Error Situations
 See <<http_status_codes,HTTP status codes>> for general guidance.
 
 If the parameter `joinId` does not exist on the server, the status code of the response will be `404`. (see <<http_status_codes,HTTP status codes>>).
 
-[[rc_join_delete]]
-== Requirements Class "Join Delete"
+
+[[rc_join_source_delete]]
+== Requirements Class "Join Source Delete"
 
 === Overview
-include::./requirements/requirements_class_join_delete.adoc[]
+include::./requirements/requirements_class_join_source_delete.adoc[]
 
-=== Join Delete
+=== Join Source Delete
 
-The HTTP DELETE operation at path `{root}/joins/{joinId}` deletes the specific join from the server. 
+The HTTP DELETE operation at path `{root}/collections/{collectionId}/joins/{joinId}` deletes the specific join source from the server. 
 
 ==== Request
 
-include::./requirements/join-delete/REQ_joins-joinid-delete-op.adoc[]
+include::./requirements/join-source-delete/REQ_collections-collectionid-joins-joinid-delete-op.adoc[]
 
 ==== Response
 
-include::./requirements/join-delete/REQ_joins-joinid-delete-success.adoc[]
+include::./requirements/join-source-delete/REQ_collections-collectionid-joins-joinid-delete-success.adoc[]
 
-===== Response schema for the Join Delete
+===== Response schema for the Join Source Delete
 
 The response of the operation is empty.
 
@@ -639,10 +597,10 @@ See <<http_status_codes,HTTP status codes>> for general guidance.
 include::./requirements/requirements_class_input_file_upload.adoc[]
 
 === Join Creation Operation
-The <<join_creation,Join Creation>> operation of the Data Joining requirement class defines how to create a join with a collection. The Input File Upload requirements class specifies mechanisms for specifying support for input file uploading to the server.
+The <<join_source_creation,Join Source Creation>> operation of the Data Joining requirement class defines how to save a join source data to a server. The Input File Upload requirements class specifies mechanisms for specifying support for input file uploading to the server.
 
 ==== Form Data Parameter `right-dataset-file`
-include::./requirements/input-file-upload/REQ_right-dataset-file-join-creation.adoc[]
+include::./requirements/input-file-upload/REQ_right-dataset-file-join-source-creation.adoc[]
 
 === File Joining Operation
 The <<file_joining,File Joining>> operation of the File Joining requirement class defines how to create a join between two input files. The Input File Upload requirements class specifies mechanisms for specifying support for input file uploading to the server.
@@ -661,10 +619,10 @@ include::./requirements/input-file-upload/REQ_left-dataset-file-file-joining.ado
 include::./requirements/requirements_class_file_referencing_with_url.adoc[]
 
 === Join Creation Operation
-The <<join_creation,Join Creation>> operation of the Data Joining requirement class defines how to create a join with a collection. The File Referencing with URL requirements class specifies mechanisms for specifying support for referencing input files via URL links.
+The <<join_source_creation,Join Source Creation>> operation of the Data Joining requirement class defines how to save join source data to a server. The File Referencing with URL requirements class specifies mechanisms for specifying support for referencing input files via URL links.
 
 ==== Form Data Parameter `right-dataset-url`
-include::./requirements/input-http-ref/REQ_right-dataset-url-join-creation.adoc[]
+include::./requirements/input-http-ref/REQ_right-dataset-url-join-source-creation.adoc[]
 
 === File Joining Operation
 The <<file_joining,File Joining>> operation of the File Joining requirement class defines how to create a join between two input files. The File Referencing with URL requirements class specifies mechanisms for specifying support for referencing input files via URL links.
@@ -683,10 +641,10 @@ include::./requirements/input-http-ref/REQ_left-dataset-url-file-joining.adoc[]
 include::./requirements/requirements_class_csv_file_input.adoc[]
 
 === Join Creation Operation
-The <<join_creation,Join Creation>> operation of the Data Joining requirement class defines how to create a join with a collection. The CSV File Input requirements class specifies mechanisms for specifying support for CSV input data format.
+The <<join_source_creation,Join Source Creation>> operation of the Data Joining requirement class defines how to save a Join Source data to a server. The CSV File Input requirements class specifies mechanisms for specifying support for CSV input data format.
 
 ==== Parameter `right-dataset-format`
-include::./requirements/input-csv/REQ_right-dataset-format-join-creation.adoc[]
+include::./requirements/input-csv/REQ_right-dataset-format-join-source-creation.adoc[]
 
 === File Joining Operation
 The <<file_joining,File Joining>> operation of the File Joining requirement class defines how to create a join between two input files. The CSV File Input requirements class specifies mechanisms for specifying support for CSV input data format.
@@ -706,35 +664,6 @@ The <<file_joining,File Joining>> operation of the File Joining requirement clas
 
 ==== Parameter `left-dataset-format`
 include::./requirements/input-geojson/REQ_left-dataset-format-file-joining.adoc[]
-
-
-
-[[rc_output_geojson]]
-== Requirements Class "GeoJSON Output for Joined Data"
-
-=== Overview
-include::./requirements/requirements_class_geojson_output.adoc[]
-
-=== Join Creation Operation
-The <<join_creation,Join Creation>> operation of the Data Joining requirement class defines how to create a join with a collection. The GeoJSON Output for Joined Data requirements class specifies mechanisms for specifying support for GeoJSON output for the joined data.
-
-==== Parameter `output-formats`
-include::./requirements/output-geojson/REQ_output-formats-join-creation.adoc[]
-
-
-
-[[rc_output_geojson_direct]]
-== Requirements Class "Direct GeoJSON Output for Joined Data"
-
-=== Overview
-include::./requirements/requirements_class_direct_geojson_output.adoc[]
-
-=== Join Creation Operation
-The <<join_creation,Join Creation>> operation of the Data Joining requirement class defines how to create a join with a collection. The Direct GeoJSON Output for Joined Data requirements class specifies mechanisms for specifying support for direct GeoJSON output for the joined data instead of getting the link via join creation response document.
-
-==== Parameter `output-formats`
-include::./requirements/output-geojson-direct/REQ_output-formats-join-creation.adoc[]
-
 
 
 [[rc_encodings]]
@@ -795,7 +724,5 @@ The support for the GeoJSON format is mandatory.
 
 === Overview
 include::./requirements/requirements_class_geojson.adoc[]
-
-include::./requirements/geojson/REQ_geojson-join-creation.adoc[]
 
 include::./requirements/geojson/REQ_geojson-file-joining.adoc[]

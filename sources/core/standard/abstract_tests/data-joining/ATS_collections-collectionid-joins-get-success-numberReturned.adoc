@@ -1,0 +1,15 @@
+[[ats_data_joining_collections-collectionid-joins-get-success-numberReturned]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/data-joining/collections-collectionid-joins-get-success-numberReturned
+target:: /req/data-joining/collections-collectionid-joins-get-success-numberReturned
+test-purpose:: Validate that the join sources content complies with the required structure and contents.
+test-method::
++
+--
+. Execute the test <<ats_data_joining_collections-collectionid-joins-get-op, collections-collectionid-joins-get-op>> with selected filtering parameters.
+. If the response document contains a `numberRetuned` property, verify that it is identical to the number of items in the `joins` array.
+--
+====

@@ -1,0 +1,15 @@
+[[req_data_joining_collections-collectionid-joins-post-op]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/data-joining/collections-collectionid-joins-post-op
+part:: If the server implements __data joining operations__, it SHALL support the HTTP POST operation at path `{root}/collections/{collectionId}/joins`.
+part:: The request is made as a <<rfc7578,multipart/form-data>> request. 
+The request SHALL contain the header:
+Content-Type: multipart/form-data;
+part:: If the input data file is uploaded with the query, it SHALL contain the header:
+Content-Disposition: form-data; filename="[right dataset file's name]"; name="right-dataset-file";
+part:: The input data file SHALL be encoded with the `UTF-8` encoding.
+part:: The Form Data parameters of the query are listed in a <<req_data_joining_collections-collectionid-joins-post-op-form-data-parameters,Table 5>>:
+====

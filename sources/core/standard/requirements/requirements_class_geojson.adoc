@@ -6,9 +6,7 @@
 [%metadata]
 identifier:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/req/geojson
 subject:: Web API
-inherit:: <<rc_data_joining,Requirements Class: "Data Joining">>
 inherit:: <<rc_file_joining,Requirements Class: "File Joining">>
 inherit:: <<rfc7946,The GeoJSON Format>>
-requirement:: /req/geojson/geojson-join-creation
 requirement:: /req/geojson/geojson-file-joining
 ====

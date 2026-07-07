@@ -12,7 +12,6 @@ The `Landing page` (path `/`) provides an entry point to the API. It contains li
 * The `API definition` (link relations `service-desc` and `service-doc`).
 * The `Conformance declaration` (path `/conformance`, link relation `http://www.opengis.net/def/rel/ogc/1.0/conformance`).
 * The `Collections` (path `/collections`, link relation `http://www.opengis.net/def/rel/ogc/1.0/data`).
-* The `Joins` (path `/joins`, link relation `joins`).
 
 The `API definition` describes the capabilities of the server that can be used by clients to connect to the server or by development tools to support the implementation of servers and clients. Accessing the `API definition` using HTTP GET returns a description of the deployed API implementation instance. The API definition can be hosted on the API server(s) or on a separate server.
 
@@ -22,7 +21,7 @@ The conformance class values defined in this document are listed in <<conformanc
 
 === Data Joining Operations
 
-__Data joining operations__ defines operations for accessing metadata and key fields on the feature collections that are available on the server, operations for joining data from input data files with the collections, and operations for accessing and deleting the created joins. The __data joining operations__ is defined in the requirements classes <<rc_data_joining,"Data Joining">> and <<rc_join_delete,"Join Delete">>. For this operation set, the implementation of the "Data Joining" requirements class is mandatory and the "Join Delete" requirements class is optional.
+__Data joining operations__ defines operations for accessing metadata and key fields on the feature collections that are available on the server, operations for creating a join source that stores data on the server, operations for accessing and deleting the created join sources and /items operataion that can be used for joining data from the join source witht the features. The __data joining operations__ is defined in the requirements classes <<rc_data_joining,"Data Joining">> and <<rc_join_source_delete,"Join Source Delete">>. For this operation set, the implementation of the "Data Joining" requirements class is mandatory and the "Join Source Delete" requirements class is optional.
 
 The __data joining operations__ contains following functionalities:
 
@@ -32,13 +31,13 @@ The __data joining operations__ contains following functionalities:
 
 * Accessing the `Collection's Key Fields` using HTTP GET at path `/collections/{collectionId}/keys` provides information on the key fields of a Collection.
 
-* Accessing the `Joins` using HTTP GET returns a list of Joins that are available on the server. 
+* Accessing the `Join Sources` using HTTP GET at path `/collections/{collectionId}/joins`returns a list of join sources that are related to a specific collection that are available on the server. 
 
-* New `Joins` can be created by making a HTTP POST query at path `/joins`. This is done by joining data from an input data file with a Collection available on the server. This standard contains suppport for the CSV input files, defined in the requirements class "<<rc_input_csv, CSV File Input>>" The input files can be either uploaded to the server, represented by the requirements claas "<<rc_file_uploading_with_query, Input File Upload>>" or they can be referenced via URL links, represented by the requirements class "<<rc_file_referencing_with_url, File Referencing with URL>>". The Join Creation operation is required to support the GeoJSON format for the joined data, represented by the requirements class "<<rc_output_geojson, GeoJSON Output for Joined Data>>". The operation may also support a direct GeoJSON output by implementing the requirements class "<<rc_output_geojson_direct, Direct GeoJSON Output for Joined Data>>".
+* New `Joins Sources` can be created by making a HTTP POST query at path `/collections/{collectionId}/joins`. This standard contains suppport for the CSV input files, defined in the requirements class "<<rc_input_csv, CSV File Input>>" The input files can be either uploaded to the server, represented by the requirements class "<<rc_file_uploading_with_query, Input File Upload>>" or they can be referenced via URL links, represented by the requirements class "<<rc_file_referencing_with_url, File Referencing with URL>>". 
 
-* Each `Join` element in the Joins list can be accessed further in order to get the metadata on each individual Join by making an HTTP GET request at path `/joins/{joinId}`.
+* The metadata of each `Join Source` resource can be accessed by making an HTTP GET request at path `/collections/{collectionId}/joins/{joinId}`.
 
-* Each `Join` can be deleted by making a HTTP DELETE request at path `/joins/{joinId}`.
+* Each `Join Source` can be deleted by making a HTTP DELETE request at path `/collections/{collectionId}/joins/{joinId}`.
 
 
 === File Joining Operations
@@ -52,7 +51,7 @@ __File joining operations__ defines functionality for joining data from input da
 
 The use of a "<<rc_json, JSON>>" encoding is mandatory for service responses in operation sets __discovery operations__ and __data joining operations__. In addition, support for "<<rc_html, HTML>>" encoding is recommended.
 
-Support for the "<<rc_geojson, GeoJSON>>" encoding is mandatory for the joined data outputs in __data joining operations__ and __file joining operations__.
+Support for the "<<rc_geojson, GeoJSON>>" encoding is mandatory for the __file joining operations__.
 
 
 === Overview on the functionalities

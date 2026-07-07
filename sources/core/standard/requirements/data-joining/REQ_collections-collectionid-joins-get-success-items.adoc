@@ -1,0 +1,8 @@
+[[req_data_joining_collections-collectionid-joins-get-success-items]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/data-joining/collections-collectionid-joins-get-success-items
+part:: For each join source resource accessible through the server, metadata describing that join source SHALL be provided in the property `joins`.
+====

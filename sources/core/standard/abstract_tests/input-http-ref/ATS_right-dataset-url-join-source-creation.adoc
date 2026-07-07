@@ -1,0 +1,17 @@
+[[ats_input_http_ref-right-dataset-url-join-source-creation]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/input-http-ref/right-dataset-url-join-source-creation
+target:: /req/input-http-ref/right-dataset-url-join-source-creation
+test-purpose:: 
+Validate that the right dataset input file can be referenced via URL in the join source creation query.
+test-method::
++
+--
+Execute the abstract test: <<ats_data_joining_collections-collectionid-joins-post-op, /conf/data-joining/collections-collectionid-joins-post-op>> where:
+
+* The request contains the form data parameter `right-dataset-url` that contains the URL of the right dataset file.
+--
+====
